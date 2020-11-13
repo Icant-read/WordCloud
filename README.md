@@ -1,5 +1,6 @@
 # WordCloud
 Computer Science III Project
+
 import java.net.URL;
 import java.net.URLConnection;
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.net.MalformedURLException;
+
 public class Cloud
 {
 	private static String str;
