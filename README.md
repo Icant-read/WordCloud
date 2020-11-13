@@ -16,7 +16,9 @@ import java.util.TreeMap;
 import java.net.MalformedURLException;
 
 public class Cloud
+
 {
+
 	private static String str;
 	
 	public Cloud() {
