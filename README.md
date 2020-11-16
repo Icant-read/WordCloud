@@ -1,51 +1,28 @@
 # WordCloud
-Computer Science III Project
 
 import java.net.URL;
-
 import java.net.URLConnection;
-
 import java.io.IOException;
-
 import java.util.ArrayList;
-
 import java.util.Scanner;
-
 import java.util.TreeMap;
-
 import java.net.MalformedURLException;
-
 public class Cloud
-
 {
-
 	private static String str;
+	private static ArrayList stringstring;
+	private static ArrayList numbers;
+	private static TreeMap<String, Integer> map;
 	
 	public Cloud() {
 		str = "";
+		stringstring = new ArrayList<String>();
+		numbers = new ArrayList<Integer>();
+		map = new TreeMap<String, Integer>();
 	}
-	public static void main(String[] args)
-	{
-		try {
-			URL myURL = new URL("http://example.com/");
-			URLConnection site = myURL.openConnection();
-			site.connect();
-			Scanner reader = new Scanner( site.getInputStream() );
-			str=reader.useDelimiter( "\\Z" ).next();
-			populateLists();
-		}
-		catch (MalformedURLException e) {
-			// new URL() failed
-			// ...
-		}
-		catch (IOException e) {
-			// openConnection() failed
-			// ...
-		}
-	}
-	
-	public static void populateLists() {
+	public static void populateLists(String strong) {
 		// Brianna Bowers
+		str = strong;
 		ArrayList<String> strings;
 		strings = new ArrayList<String>();
 		ArrayList<Integer> ints;
@@ -279,10 +256,19 @@ public class Cloud
 			}
 		}
 		
-		//This prints the lists, you can delete this
 		for(int xx=0;xx<strings.size();xx++) {
+			stringstring.add(strings.get(xx));
+			numbers.add(ints.get(xx));
+			//This below prints the lists, you can delete this
 			System.out.println(strings.get(xx) + " " + ints.get(xx));
 		}
-		// Put these lists - 'strings' and 'ints' - into a map
+	}
+	
+	public static void makeMap() {
+		
+	}
+	
+	public static void paint() {
+		
 	}
 }
