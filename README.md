@@ -19,8 +19,8 @@ public class Cloud
 {
 
 	private static String str;
-	private static ArrayList stringstring;
-	private static ArrayList numbers;
+	private static ArrayList<String> stringstring;
+	private static ArrayList<Integer> numbers;
 	private static TreeMap<String, Integer> map;
 	
 	public Cloud() {
@@ -62,6 +62,7 @@ public class Cloud
 			ppp = ppp.replaceAll("<.*>", "");
 			ppp = ppp.replaceAll(".*<.*", "");
 			ppp = ppp.replaceAll(".*>.*", "");
+			ppp = ppp.replaceAll("[.?!()']", "");
 			if(ppp.matches(".+")) {
 				strings.add(ppp);
 				ints.add(1);
@@ -87,6 +88,7 @@ public class Cloud
 			ppp = ppp.replaceAll("<.*>", "");
 			ppp = ppp.replaceAll(".*<.*", "");
 			ppp = ppp.replaceAll(".*>.*", "");
+			ppp = ppp.replaceAll("[.?!()']", "");
 			if(ppp.matches(".+")) {
 				strings.add(ppp);
 				ints.add(10);
@@ -113,6 +115,7 @@ public class Cloud
 			ppp = ppp.replaceAll("<.*>", "");
 			ppp = ppp.replaceAll(".*<.*", "");
 			ppp = ppp.replaceAll(".*>.*", "");
+			ppp = ppp.replaceAll("[.?!()']", "");
 			if(ppp.matches(".+")) {
 				strings.add(ppp);
 				ints.add(8);
@@ -138,6 +141,7 @@ public class Cloud
 			ppp = ppp.replaceAll("<.*>", "");
 			ppp = ppp.replaceAll(".*<.*", "");
 			ppp = ppp.replaceAll(".*>.*", "");
+			ppp = ppp.replaceAll("[.?!()']", "");
 			if(ppp.matches(".+")) {
 				strings.add(ppp);
 				ints.add(6);
@@ -163,6 +167,7 @@ public class Cloud
 			ppp = ppp.replaceAll("<.*>", "");
 			ppp = ppp.replaceAll(".*<.*", "");
 			ppp = ppp.replaceAll(".*>.*", "");
+			ppp = ppp.replaceAll("[.?!()']", "");
 			if(ppp.matches(".+")) {
 				strings.add(ppp);
 				ints.add(4);
@@ -188,6 +193,7 @@ public class Cloud
 			ppp = ppp.replaceAll("<.*>", "");
 			ppp = ppp.replaceAll(".*<.*", "");
 			ppp = ppp.replaceAll(".*>.*", "");
+			ppp = ppp.replaceAll("[.?!()']", "");
 			if(ppp.matches(".+")) {
 				strings.add(ppp);
 				ints.add(2);
@@ -213,6 +219,7 @@ public class Cloud
 			ppp = ppp.replaceAll("<.*>", "");
 			ppp = ppp.replaceAll(".*<.*", "");
 			ppp = ppp.replaceAll(".*>.*", "");
+			ppp = ppp.replaceAll("[.?!()']", "");
 			if(ppp.matches(".+")) {
 				strings.add(ppp);
 				ints.add(1);
@@ -239,6 +246,7 @@ public class Cloud
 			ppp = ppp.replaceAll("<.*>", "");
 			ppp = ppp.replaceAll(".*<.*", "");
 			ppp = ppp.replaceAll(".*>.*", "");
+			ppp = ppp.replaceAll("[.?!()']", "");
 			if(ppp.matches(".+")) {
 				strings.add(ppp);
 				ints.add(10);
@@ -265,6 +273,7 @@ public class Cloud
 			ppp = ppp.replaceAll("<.*>", "");
 			ppp = ppp.replaceAll(".*<.*", "");
 			ppp = ppp.replaceAll(".*>.*", "");
+			ppp = ppp.replaceAll("[.?!()']", "");
 			if(ppp.matches(".+")) {
 				strings.add(ppp);
 				ints.add(10);
@@ -291,6 +300,7 @@ public class Cloud
 			ppp = ppp.replaceAll("<.*>", "");
 			ppp = ppp.replaceAll(".*<.*", "");
 			ppp = ppp.replaceAll(".*>", "");
+			ppp = ppp.replaceAll("[.?!()']", "");
 			if(ppp.matches(".+")) {
 				strings.add(ppp);
 				ints.add(5);
@@ -302,16 +312,23 @@ public class Cloud
 			stringstring.add(strings.get(xx));
 			numbers.add(ints.get(xx));
 			//This below prints the lists, you can delete this
-			System.out.println(strings.get(xx) + " " + ints.get(xx));
+			//System.out.println(strings.get(xx) + " " + ints.get(xx));
 		}
 		//System.out.println(str);
 	}
 	
 	public static void makeMap() {
-		
+		//Joshua Navarro
+		for (int x = 0; x < stringstring.size(); x++) {
+			if (!map.containsKey(stringstring.get(x))) {
+				map.put(stringstring.get(x),0);
+			}
+			map.put(stringstring.get(x), map.get(stringstring.get(x)) + numbers.get(x));
+		}
 	}
 	
 	public static void paint() {
-		
+		//Kalen Kim
+		System.out.print(map);
 	}
 }
