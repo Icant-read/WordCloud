@@ -281,7 +281,6 @@ public class Cloud
 					href+= " ";
 				}
 				href+=d[x];
-				System.out.println("X " + d[x]);
 			}
 			if(d[x].matches(".*</a>.*")) {
 				print=false;
