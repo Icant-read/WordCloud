@@ -15,6 +15,7 @@ import java.util.TreeMap;
 import java.net.MalformedURLException;
 
 public class Cloud
+
 {
 
 	private static String str;
@@ -42,6 +43,9 @@ public class Cloud
 		for(int x=0;x<d.length;x++) {
 			if(d[x].matches("<p>.*")) {
 				print = true;
+			}
+			if(d[x].matches("<p><a.*")) {
+				print = false;
 			}
 			if(print == true) {
 				if(p.length()>0) {
@@ -88,6 +92,7 @@ public class Cloud
 				ints.add(10);
 			}
 		}
+		
 		String h2="";
 		for(int x=0;x<d.length;x++) {
 			if(d[x].matches("<h2>.*")) {
@@ -213,6 +218,7 @@ public class Cloud
 				ints.add(1);
 			}
 		}
+
 		String title="";
 		for(int x=0;x<d.length;x++) {
 			if(d[x].matches("<title>.*")) {
@@ -238,6 +244,7 @@ public class Cloud
 				ints.add(10);
 			}
 		}
+
 		String li="";
 		for(int x=0;x<d.length;x++) {
 			if(d[x].matches("<li>.*")) {
@@ -264,12 +271,41 @@ public class Cloud
 			}
 		}
 		
+		String href="";
+		for(int x=0;x<d.length;x++) {
+			if(d[x].matches(".*<a.*")) {
+				print = true;
+			}
+			if(print == true) {
+				if(href.length()>0) {
+					href+= " ";
+				}
+				href+=d[x];
+				System.out.println("X " + d[x]);
+			}
+			if(d[x].matches(".*</a>.*")) {
+				print=false;
+			}
+		}
+		String[] xyz=href.split(" ");
+		for(String ppp:xyz) {
+			ppp = ppp.replaceAll("<.*>", "");
+			ppp = ppp.replaceAll(".*<.*", "");
+			ppp = ppp.replaceAll(".*>", "");
+			if(ppp.matches(".+")) {
+				strings.add(ppp);
+				ints.add(5);
+			}
+		}
+		//make another for <a href = "word"> word </a>
+		
 		for(int xx=0;xx<strings.size();xx++) {
 			stringstring.add(strings.get(xx));
 			numbers.add(ints.get(xx));
 			//This below prints the lists, you can delete this
 			System.out.println(strings.get(xx) + " " + ints.get(xx));
 		}
+		//System.out.println(str);
 	}
 	
 	public static void makeMap() {
